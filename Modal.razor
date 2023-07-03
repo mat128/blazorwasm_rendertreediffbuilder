@@ -1,0 +1,36 @@
+<div @ref="_dialogReference">
+    @if (Visible)
+    {
+        <div class="" tabindex="-1" aria-labelledby="modal-title" style="" aria-modal="true" role="dialog">
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <h5 class="">@Title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer" @onclick="Cancel"></button>
+                    </div>
+                    @ChildContent
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public string Title { get; set; } = "";
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public bool Visible { get; set; }
+
+    private ElementReference _dialogReference;
+
+    private async Task Cancel()
+    {
+        throw new NotImplementedException();
+    }
+}

@@ -1,0 +1,18 @@
+<Modal Title="Hello" Visible="@true">
+    <form>
+        <label>
+            Test:
+            <input name="thisismyname" value="@test"/>
+        </label>
+    </form>
+</Modal>
+
+@code {
+    private string? test = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(100);
+        test = "TEST1";
+    }
+}
